@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\Authorization;
 use App\Http\Controllers\Api\V1\ContactController;
+use App\Http\Controllers\Api\V1\FormationsController;
+use App\Http\Controllers\Api\V1\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,7 @@ Route::prefix('v1')->group(function () {
         Route::prefix('user')->group(function () {
             Route::any('register', 'Register');
             Route::any('login', 'Login');
+            Route::any('logout', 'Logout');
             Route::middleware(['auth:api'])->get('logout', 'Logout');
             Route::any('all', 'Users');
             Route::any('/{id}/retrieve', 'RetrieveUser');
@@ -30,14 +33,4 @@ Route::prefix('v1')->group(function () {
         });
     });
     Route::any('authorization', [Authorization::class, 'Authorization'])->name('authorization');
-
-    ###========== CONTACT ROUTINGS ========###
-    Route::controller(ContactController::class)->group(function () {
-        Route::prefix('contact')->group(function () {
-            Route::any('add', 'ContactCreate'); #AJOUT DE CONTACT
-            Route::any('all', 'Contacts'); #GET ALL CONTACTS
-            Route::any('{id}/retrieve', 'ContactRetrieve'); #RECUPERATION D'UN CONTACT
-            Route::any('{id}/delete', 'DeleteContact'); #SUPPRESSION DE CONTACT
-        });
-    });
 });

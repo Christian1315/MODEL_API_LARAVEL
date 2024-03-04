@@ -25,19 +25,3 @@ Route::get('/', function () {
 Route::get('/documentation', function () {
     return view('documentation');
 });
-Route::get("user/{id?}", function ($id = null) {
-    return 'User ' . $id;
-});
-
-Route::get('pdf', [PdfController::class, 'getPdf']);
-
-Route::get('send-notification', function () {
-    $data = [
-        "subject" => "Test Laravel notification",
-        "message" => "Salut Christ!! Comment vas-tu!!?",
-    ];
-
-    $user = User::find(1);
-    Notification::send($user, new SendNotification($data));
-    dd("Notification envoyée avec succès!!");
-});

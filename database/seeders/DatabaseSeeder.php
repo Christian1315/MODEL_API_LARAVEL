@@ -16,14 +16,32 @@ class DatabaseSeeder extends Seeder
     {
         ##======== CREATION D'UN ADMIN PAR DEFAUT ============####
         $userData = [
-            'lastname' => 'Christian',
-            'firstname' => 'Christian',
-            'lastname' => 'GOGO',
-            'email' => 'gogochristian009@gmail.com',
-            'password' => '$2y$10$8JhR1nysW.mE1hI7CqkArelFuSLglJaBxJK5w1yLaNSpedc.4q.fq', #gogo@1315
-            'phone' => "22961765590",
+            'lastname' => 'SALIOU',
+            'firstname' => 'Augustin',
+            'email' => 'centredeformationabc@gmail.com',
+            'password' => 'admin', #gogo@1315
+            'phone' => "40544540",
+        ];
+        \App\Models\User::factory()->create($userData);
+
+        ##======== CREATION DES FORMATIONS PAR DEFAUT ============####
+        $formations = [
+            [
+                "name" => "Menuiserie aluminium et Vitrerie",
+            ],
+            [
+                "name" => "Electricité bâtiment et énergie solaire photovoltaïque",
+            ],
+            [
+                "name" => "Soudure et construction métallique",
+            ],
+            [
+                "name" => "Stylisme modélisme/ broderie-layette",
+            ]
         ];
 
-        \App\Models\User::factory()->create($userData);
+        foreach ($formations as $formation) {
+            \App\Models\Formations::factory()->create($formation);
+        }
     }
 }

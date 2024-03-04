@@ -184,9 +184,9 @@ class USER_HELPER extends BASE_HELPER
 
     static function userLogout($request)
     {
-        // $request->user()->token()->revoke();
+        $request->user()->token()->revoke();
 
-        $cookie = Cookie::forget("jwt");
-        return self::sendResponse([], 'Vous etes déconnecté(e) avec succès!', $cookie);
+        // $cookie = Cookie::forget("jwt");
+        return self::sendResponse([], 'Vous etes déconnecté(e) avec succès!');
     }
 }
