@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\DB;
+
 class USER_HELPER extends BASE_HELPER
 {
     ##======== REGISTER VALIDATION =======##
@@ -137,7 +139,7 @@ class USER_HELPER extends BASE_HELPER
             $user = Auth::user();
 
             $token = $user->createToken('MyToken', ['api-access'])->accessToken;
-            $cookie = Cookie("jwt", $token, 60 * 24);
+            // $cookie = Cookie("jwt", $token, 60 * 24);
             $user["token"] = $token;
 
             #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
@@ -150,8 +152,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::all();
-        // dd($users);
+        $users =  DB::select('SELECT * FROM dbo.[User]');#User::all();
         return self::sendResponse($users, 'Tout les utilisatreurs récupérés avec succès!!');
     }
 

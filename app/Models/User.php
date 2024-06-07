@@ -19,18 +19,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-     protected $table = "dbo.[tmp]";
+    //  protected $table = 'dbo.[User]';
 
-    protected $fillable = [
-        'firstname',
-        'lastname',
-        "denomination",
-        'phone',
-        'email',
-        'password',
-        "ifu",
-        "rccm"
-    ];
+     protected $guarded = [];
+    
+    //  protected $fillable = [
+    //     'firstname',
+    //     'lastname',
+    //     "denomination",
+    //     'phone',
+    //     'email',
+    //     'password',
+    //     "ifu",
+    //     "rccm"
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.

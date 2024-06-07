@@ -16,14 +16,14 @@ class Authenticate extends Middleware
         return $request->expectsJson() ? null : route('authorization');
     }
 
-    public function handle($request, Closure $next, ...$guards)
-    {
-        $jwt = $request->cookie("jwt");
+    // public function handle($request, Closure $next, ...$guards)
+    // {
+    //     $jwt = $request->cookie("jwt");
 
-        if ($jwt) {
-            $request->headers->set("Authorization", "Bearer " . $jwt);
-        }
-        $this->authenticate($request, $guards);
-        return $next($request);
-    }
+    //     if ($jwt) {
+    //         $request->headers->set("Authorization", "Bearer " . $jwt);
+    //     }
+    //     $this->authenticate($request, $guards);
+    //     return $next($request);
+    // }
 }
