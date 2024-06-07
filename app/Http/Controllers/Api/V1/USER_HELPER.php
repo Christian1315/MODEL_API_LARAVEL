@@ -150,7 +150,8 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::orderBy("id", "desc")->get();
+        $users =  User::all();
+        // dd($users);
         return self::sendResponse($users, 'Tout les utilisatreurs récupérés avec succès!!');
     }
 

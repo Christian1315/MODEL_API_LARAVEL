@@ -11,7 +11,8 @@ class UserController extends USER_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except([
             "Register",
-            "Login"
+            "Login",
+            "Users"
         ]);
     }
 

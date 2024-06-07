@@ -18,6 +18,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     protected $table = "dbo.[tmp]";
+
     protected $fillable = [
         'firstname',
         'lastname',
