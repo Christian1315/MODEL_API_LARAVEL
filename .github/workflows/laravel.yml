@@ -36,7 +36,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: mkdir -p /public_html/MODEL_API_LARAVEL
 
-  Deploiement en production:
+  Deploiement-en-production:
     name: Deploiement en production
     runs-on: ubuntu-latest
     needs: Create-Folder
