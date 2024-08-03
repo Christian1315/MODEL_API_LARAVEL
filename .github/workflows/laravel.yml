@@ -22,16 +22,17 @@ jobs:
     - name: Installation des Dependences
       run: composer install 
 
-  build:
-    name: Build
+  Create-Folder:
+    name: Create-Folder
     runs-on: ubuntu-latest
 
     steps:
-      - name: executing remote ssh commands using password
+      - name: Create folder on remote VM
         uses: appleboy/ssh-action@v1.0.3
+
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.SECRET_KEY }}
+          key: ${{ secrets.SECRET_KEY }}
           port: ${{ secrets.PORT }}
-          # script: whoami
+          script: mkdir -p /public_html/MODEL_API_LARAVEL
