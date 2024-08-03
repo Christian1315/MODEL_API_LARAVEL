@@ -1,5 +1,4 @@
-name: Laravel
-
+name: CI/CD Deployement
 on:
   push:
     branches: [ "master" ]
