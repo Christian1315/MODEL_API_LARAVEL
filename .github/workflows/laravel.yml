@@ -36,3 +36,20 @@ jobs:
           key: ${{ secrets.SECRET_KEY }}
           port: ${{ secrets.PORT }}
           script: mkdir -p /public_html/MODEL_API_LARAVEL
+
+  Deploiement en production:
+    name: Deploiement en production
+    runs-on: ubuntu-latest
+    needs: Create-Folder
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SECRET_KEY }}
+        port: ${{ secrets.PORT }}
+        source: "MODEL_API_LARAVEL"
+        target: /public_html/MODEL_API_LARAVEL
