@@ -33,9 +33,9 @@ jobs:
         password: ${{ secrets.SECRET_KEY }}
 
     - name: Execution des migrations
-      env:
-        DB_DATABASE: ${{ secrets.DB_DATABASE }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      # env:
+      #   DB_DATABASE: ${{ secrets.DB_DATABASE }}
+      #   DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       run: php artisan migrate --seed
 
   # Make-migrations:
