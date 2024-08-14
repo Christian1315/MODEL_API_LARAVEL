@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         ##======== CREATION D'UN ADMIN PAR DEFAUT ============####
-        // $userData = [
-        //     'lastname' => 'SALIOU',
-        //     'firstname' => 'Augustin',
-        //     'email' => 'centredeformationabc@gmail.com',
-        //     'password' => 'admin', #gogo@1315
-        //     'phone' => "40544540",
-        // ];
-        \App\Models\User::factory(100)->create();
+        $userData = [
+            'lastname' => 'SALIOU',
+            'firstname' => 'Augustin',
+            'email' => 'centredeformationabc@gmail.com',
+            'password' => 'admin', #gogo@1315
+            'phone' => "40544540",
+        ];
+        // \App\Models\User::factory($userData)->create();
     }
 }
