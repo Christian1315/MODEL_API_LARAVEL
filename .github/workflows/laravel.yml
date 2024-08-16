@@ -41,7 +41,7 @@ jobs:
         DB_DATABASE: ${{ secrets.DB_DATABASE }}
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      run: php artisan serve
+      run: php artisan route:list
 
   # Make-migrations:
   #   name: FTP-Migration-Action
