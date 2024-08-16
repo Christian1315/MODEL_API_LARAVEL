@@ -40,12 +40,12 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.SECRET_KEY }}
 
-    - name: Execution des migrations
-      env:
-        DB_DATABASE: ${{ secrets.DB_DATABASE }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      run: php artisan migrate
+    # - name: Execution des migrations
+    #   env:
+    #     DB_DATABASE: ${{ secrets.DB_DATABASE }}
+    #     DB_USERNAME: ${{ secrets.DB_USERNAME }}
+    #     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    #   run: php artisan migrate
 
   # Make-migrations:
   #   name: FTP-Migration-Action
