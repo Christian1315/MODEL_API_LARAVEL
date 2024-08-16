@@ -50,7 +50,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.SECRET_KEY }}
 
-    -name: Generate key
+    - name: Generate key
       run: php artisan key:generate
     - name: Execution des migrations
       env:
