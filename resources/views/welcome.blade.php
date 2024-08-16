@@ -17,7 +17,7 @@
 </head>
 
 <body class="antialiased">
-    <!-- <div class="container-fluid shadow-lg bg-light header">
+    <div class="container-fluid shadow-lg bg-light header">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg">
@@ -43,7 +43,7 @@
                 </nav>
             </div>
         </div>
-    </div> -->
+    </div>
     <div class="container content">
         <div class="row">
             <div class="col-md-612 text-center">
