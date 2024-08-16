@@ -9,20 +9,7 @@ jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-
-    # services:
-    #   mysql:
-    #     image: mysql:5.7
-    #     env:
-    #       MYSQL_USER: user
-    #       MYSQL_PASSWORD: secret
-    #       MYSQL_DATABASE: testdatabase
-    #       MYSQL_ROOT_PASSWORD: root
-    #       DB_PORT: ${{ job.services.mysql.ports[3306] }}
-    #     ports:
-    #       - 33306:3306
-    #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
+    
     steps:
     - uses: actions/checkout@v2.1.0
       with:
@@ -41,10 +28,8 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
     - name: Install PHP dependencies
-      run: |
-        composer install --no-dev --optimize-autoloader
-        php artisan key:generate
-    
+      run: composer install --no-dev --optimize-autoloader
+        
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
@@ -57,7 +42,7 @@ jobs:
         DB_DATABASE: ${{ secrets.DB_DATABASE }}
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      # run: php artisan migrate
+      run: php artisan migrate
 
   # Make-migrations:
   #   name: FTP-Migration-Action
